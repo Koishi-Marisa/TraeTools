@@ -126,7 +126,7 @@ def main():
         sys.exit(1)
 
     webhook = os.environ.get("FEISHU_WEBHOOK", "").strip()
-    ok_names, fail_names = [], []
+    ok_names, fail_names, busy_names = [], [], []
     all_ok = True
 
     for index, session, device_id in accounts:
@@ -142,13 +142,14 @@ def main():
             result = checkin(token, device_id)
             body = result["body"]
             code = body.get("code", -1)
-            # 9074「参与用户太多」= 设备号被风控标记；换全新设备号自动重试（最多 5 次）
-            attempt = 1
-            while code == 9074 and attempt < 5:
+            # 9074「参与用户太多」= 服务端高峰限流，需等待消峰而非密集重试；
+            # 按 30s→60s→120s 递增退避重试，同时轮换设备号
+            for delay in (30, 60, 120):
+                if code != 9074:
+                    break
                 device_id = random_device_id()
-                attempt += 1
-                print("[%s] 命中风控 9074，换新设备号重试（第 %d 次）" % (name, attempt))
-                time.sleep(random.uniform(0.8, 1.5))
+                print("[%s] 命中风控 9074（服务端高峰限流），%d 秒后重试" % (name, delay))
+                time.sleep(delay)
                 result = checkin(token, device_id)
                 body = result["body"]
                 code = body.get("code", -1)
@@ -158,6 +159,11 @@ def main():
             if ok:
                 print("[%s] 签到成功，本次获得：%s 积分" % (name, credits))
                 ok_names.append(name)
+            elif code == 9074:
+                # 退避后仍被限流：属服务端临时状况，仅告警，不判定为工作流失败
+                reason = body.get("message") or "当前参与用户太多，请稍后再试"
+                print("[%s] 签到未完成（服务端高峰限流 9074，非凭证/脚本问题）：%s" % (name, reason))
+                busy_names.append(name)
             else:
                 reason = body.get("message") or ("HTTP %s" % result["http"])
                 print("[%s] 签到失败：%s" % (name, reason))
@@ -174,12 +180,17 @@ def main():
         summary.append("成功：" + "、".join(ok_names))
     if fail_names:
         summary.append("失败：" + "、".join(fail_names))
-    if webhook and (ok_names or fail_names):
+    if busy_names:
+        summary.append("被限流(9074)：" + "、".join(busy_names) + "（服务端高峰，稍后可再试）")
+    if webhook and (ok_names or fail_names or busy_names):
         notify_feishu(webhook, "\n".join(summary))
 
     if not all_ok:
         sys.exit(1)
-    print("全部账号签到完成")
+    if busy_names:
+        print("注意：部分账号遇服务端高峰限流(9074)，本次未完成签到；非脚本/凭证问题，工作流不判失败")
+    else:
+        print("全部账号签到完成")
 
 
 if __name__ == "__main__":
