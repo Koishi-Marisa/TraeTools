@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.traetools.android.crypto.SealedBoxTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-13T04:52:05.426Z" hostname="all-in-one-87-9f7pp" time="0.207">
+  <properties/>
+  <testcase name="blake2b_192_known_vector" classname="com.traetools.android.crypto.SealedBoxTest" time="0.185"/>
+  <testcase name="x25519_rfc7748_vector" classname="com.traetools.android.crypto.SealedBoxTest" time="0.008"/>
+  <testcase name="beforenm_matches_libsodium" classname="com.traetools.android.crypto.SealedBoxTest" time="0.002"/>
+  <testcase name="open_pynacl_sealed_box" classname="com.traetools.android.crypto.SealedBoxTest" time="0.007"/>
+  <testcase name="seal_matches_libsodium_algorithm" classname="com.traetools.android.crypto.SealedBoxTest" time="0.002"/>
+  <testcase name="secretbox_matches_libsodium" classname="com.traetools.android.crypto.SealedBoxTest" time="0.001"/>
+  <testcase name="roundTrip_random" classname="com.traetools.android.crypto.SealedBoxTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

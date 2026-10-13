@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.traetools.android.app-release-34:/layout_activity_web_login.xml.flat",
+        "source": "com.traetools.android.app-main-35:/layout/activity_web_login.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/layout_item_account.xml.flat",
+        "source": "com.traetools.android.app-main-35:/layout/item_account.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/layout_dialog_device_code.xml.flat",
+        "source": "com.traetools.android.app-main-35:/layout/dialog_device_code.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.traetools.android.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/layout_activity_main.xml.flat",
+        "source": "com.traetools.android.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/mipmap_ic_launcher.xml.flat",
+        "source": "com.traetools.android.app-main-35:/mipmap/ic_launcher.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-release-34:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.traetools.android.app-main-35:/drawable/ic_launcher_foreground.xml"
+    }
+]

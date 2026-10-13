@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.traetools.android.app-mergeReleaseResources-33:/layout/activity_web_login.xml",
+        "source": "com.traetools.android.app-main-35:/layout/activity_web_login.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-mergeReleaseResources-33:/layout/item_account.xml",
+        "source": "com.traetools.android.app-main-35:/layout/item_account.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-mergeReleaseResources-33:/layout/activity_main.xml",
+        "source": "com.traetools.android.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.traetools.android.app-mergeReleaseResources-33:/layout/dialog_device_code.xml",
+        "source": "com.traetools.android.app-main-35:/layout/dialog_device_code.xml"
+    }
+]
