@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TraeTools 云签到</string>
+
+    <string name="title_github">1. GitHub 授权</string>
+    <string name="github_unauthorized">未授权：点击下方按钮，按提示在浏览器完成设备码授权</string>
+    <string name="github_authorized">已授权：%1$s</string>
+    <string name="btn_github_auth">GitHub 设备码授权</string>
+    <string name="btn_github_logout">退出授权</string>
+
+    <string name="title_repo">2. 目标仓库</string>
+    <string name="repo_hint">仓库名（默认 TraeTools）</string>
+    <string name="repo_desc">凭证将写入 %1$s 的 Actions Secrets</string>
+
+    <string name="title_accounts">3. Trae 账号</string>
+    <string name="btn_add_account">登录 Trae 添加账号</string>
+    <string name="accounts_empty">还没有账号。点击上方按钮登录 trae.cn（手机号+验证码）以获取会话凭证。</string>
+    <string name="account_index">账号 %1$d</string>
+    <string name="account_uid_none">未识别 UID</string>
+    <string name="account_uid">UID：%1$s</string>
+    <string name="account_has_session">已获取会话凭证</string>
+    <string name="account_no_session">缺少会话凭证</string>
+    <string name="btn_account_relogin">重新登录</string>
+    <string name="btn_account_delete">删除</string>
+    <string name="device_id_hint">16 位设备号</string>
+
+    <string name="title_actions">4. 同步与触发</string>
+    <string name="btn_sync">同步到 GitHub Secrets</string>
+    <string name="btn_dispatch">触发云端签到</string>
+
+    <string name="log_placeholder">操作日志会显示在这里。</string>
+
+    <string name="device_dialog_title">GitHub 设备码授权</string>
+    <string name="device_dialog_code">请在浏览器中输入以下代码：</string>
+    <string name="btn_copy_code">复制代码</string>
+    <string name="btn_open_browser">打开浏览器授权</string>
+    <string name="device_dialog_waiting">等待授权中…</string>
+    <string name="btn_cancel">取消</string>
+
+    <string name="web_login_hint">请在下方登录 trae.cn（手机号+验证码），登录成功后会自动返回。</string>
+    <string name="web_login_waiting">等待登录中…</string>
+    <string name="web_login_success">已获取会话凭证，正在返回…</string>
+</resources>
